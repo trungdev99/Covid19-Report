@@ -1,0 +1,85 @@
+<div class="container">
+    <form
+      novalidate
+      (ngSubmit)="onSubmit()"
+      [formGroup]="rfContact"
+      class="form-control"
+    >
+      <div style="text-align: center">
+        <h1>Sign up</h1>
+        <p style="color: greenyellow">Have an account?</p>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input
+              class="mdl-textfield__input"
+              type="text"
+              id="text1"
+              formControlName="UserName"
+            />
+            <label class="mdl-textfield__label" for="text1">UserName</label>
+            <p
+              style="color: red"
+              *ngIf="
+                rfContact.get('UserName')?.errors?.required &&
+                rfContact.get('UserName')?.touched
+              "
+            >
+              Name required
+            </p>
+          </div>
+          <br />
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input
+            class="mdl-textfield__input"
+            type="email"
+            id="text1"
+            formControlName="Account"
+          />
+          <label class="mdl-textfield__label" for="text1">Email</label>
+          <p
+            style="color: red"
+            *ngIf="
+              rfContact.get('Account')?.errors?.required &&
+              rfContact.get('Account')?.touched
+            "
+          >
+            Name required
+          </p>
+        </div>
+        <br />
+  
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  
+          <input
+            class="mdl-textfield__input"
+            type="password"
+            id="text1"
+            formControlName="Password"
+          />
+          <label class="mdl-textfield__label" for="text1">Password</label>
+  
+          <span
+            style="color: red"
+            *ngIf="
+              rfContact.get('Password')?.errors?.required &&
+              rfContact.get('Password')?.touched
+            "
+          >
+            Name required
+          </span>
+        </div>
+        <br />
+  
+  
+        <button
+          class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+          [disabled]="!rfContact.valid"
+        >
+          Button
+        </button>
+  
+  
+        
+      </div>
+    </form>
+  </div>
